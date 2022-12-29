@@ -1,5 +1,7 @@
 public class FizzBuzz {
-    public int print(int number) {
-        return 1;
+    public String print(int number) {
+        if (number % 3 == 0)
+            return "FIZZ";
+        return Integer.toString(number);
     }
 }

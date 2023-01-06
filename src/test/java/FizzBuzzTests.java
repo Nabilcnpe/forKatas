@@ -1,5 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class FizzBuzzTests {
 
@@ -57,5 +59,30 @@ public class FizzBuzzTests {
     public void should_return_BUZZ_for_twenty() {
         int number = 20;
         Assert.assertEquals("BUZZ", fizzBuzz.print(number));
+    }
+
+    @Test
+    public void should_return_FIZZBUZZ_for_fifteen() {
+        int number = 15;
+        Assert.assertEquals("FIZZBUZZ", fizzBuzz.print(number));
+    }
+
+    @Test
+    public void should_return_FIZZBUZZ_for_thirty() {
+        int number = 30;
+        Assert.assertEquals("FIZZBUZZ", fizzBuzz.print(number));
+    }
+
+    @Test
+    public void should_return_FIZZBUZZ_for_forty_five() {
+        int number = 45;
+        Assert.assertEquals("FIZZBUZZ", fizzBuzz.print(number));
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {1, 3, 5, 8, 15, Integer.MAX_VALUE / 15})
+    public void test_return_FIZZBUZZ_for_multi_value(int testNumber) {
+        int number = 15 * testNumber;
+        Assert.assertEquals("FIZZBUZZ", fizzBuzz.print(number));
     }
 }
